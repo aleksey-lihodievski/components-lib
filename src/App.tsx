@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { MouseEventHandler } from 'react';
 
-function App() {
+import Button from './Button';
+import ButtonGroup from './ButtonGroup';
+
+const App: React.FC = () => {
+  const onClick: MouseEventHandler = (event) => {
+    console.log('click', event.currentTarget);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <ButtonGroup>
+          <Button
+            onClick={onClick}
+            active={true}
+            className='custom-button'
+            type='button'
+            href='http://google.com'
+            disabled={false}
+          >
+            login
+          </Button>
+          <Button
+            onClick={onClick}
+            active={false}
+            className='custom-button'
+            type='button'
+            href='http://google.com'
+            disabled={false}
+          >
+            sign up
+          </Button>
+          <Button
+            onClick={onClick}
+            active={false}
+            className='custom-button'
+            type='button'
+            href='http://google.com'
+            disabled={true}
+          >
+            disabled
+          </Button>
+          <Button
+            onClick={onClick}
+            active={true}
+            className='custom-button'
+            type='button'
+            href='http://google.com'
+            disabled={true}
+          >
+            another disabled
+          </Button>
+        </ButtonGroup>
       </header>
     </div>
   );
-}
+};
 
 export default App;
