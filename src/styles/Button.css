@@ -1,0 +1,48 @@
+button {
+  border: 0;
+  padding: 10px 15px;
+  color: #000000;
+  background-color: #d6d6d6;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: 0.3s all ease;
+}
+button:hover:not(.btn-disabled) {
+  background-color: #c5c5c5;
+}
+button:active:not(.btn-disabled) {
+  background-color: #b9b8b8;
+  transition: unset;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #3969a8;
+}
+
+.btn-active {
+  background-color: #17aec9;
+  color: #000;
+}
+.btn-active:hover:not(.btn-disabled) {
+  background-color: #14a6c0;
+}
+.btn-active:active:not(.btn-disabled) {
+  background-color: #138ea3;
+}
+
+.btn-disabled {
+  filter: brightness(110%);
+  cursor: unset;
+}
+
+.btn-link.btn-active {
+  color: #17aec9;
+  background-color: transparent;
+}
+
+.btn-has_link {
+  text-decoration: underline;
+}
