@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import '../styles/ButtonGroup.css';
+
 export class ButtonGroupClass extends Component {
   render() {
     const { vertical, className, children } = this.props;
