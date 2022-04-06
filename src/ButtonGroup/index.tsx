@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import '../styles/ButtonGroup.css';
+import './ButtonGroup.css';
 
-interface Props {
+interface IProps {
   vertical?: boolean;
   className?: string;
   children: React.ReactNode;
 }
 
-export class ButtonGroupClass extends Component<Props> {
+export class ButtonGroupClass extends Component<IProps> {
   render() {
     const { vertical, className, children } = this.props;
 
@@ -19,11 +19,11 @@ export class ButtonGroupClass extends Component<Props> {
   }
 }
 
-const ButtonGroup: React.FC<Props> = ({
+const ButtonGroup: React.FC<IProps> = ({
   vertical,
   className,
   children,
-}: Props) => {
+}: IProps) => {
   const classes = [className, 'btnGroup'];
   if (vertical) classes.push('btnGroup__vertical');
 

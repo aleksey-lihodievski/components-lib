@@ -1,6 +1,6 @@
 import React, { Component, MouseEventHandler } from 'react';
 
-import '../styles/Button.css';
+import './Button.css';
 
 export class ButtonClass extends Component {
   render() {
@@ -21,7 +21,7 @@ export class ButtonClass extends Component {
           onClick={onClick}
           className={classes.join(' ')}
         >
-          {children || 'Default button'}
+          {children}
         </a>
       );
     }
@@ -29,13 +29,20 @@ export class ButtonClass extends Component {
       <button
         onClick={onClick}
         className={classes.join(' ')}
-        type={type || 'button'}
+        type={type}
         disabled={disabled ?? false}
       >
-        {children || 'Default button'}
+        {children}
       </button>
     );
   }
+
+  static defaultProps = {
+    type: 'button',
+    disabled: false,
+    active: false,
+    children: 'DefaultBu',
+  };
 }
 
 // Function component
@@ -63,7 +70,7 @@ const Button = ({
         onClick={onClick}
         className={classes.join(' ')}
       >
-        {children || 'Default button'}
+        {children}
       </a>
     );
   }
@@ -71,12 +78,19 @@ const Button = ({
     <button
       onClick={onClick}
       className={classes.join(' ')}
-      type={type || 'button'}
+      type={type}
       disabled={disabled ?? false}
     >
-      {children || 'Default button'}
+      {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  type: 'button',
+  disabled: false,
+  active: false,
+  children: 'DefaultBu',
 };
 
 export default Button;

@@ -1,10 +1,12 @@
 import React, { Component, MouseEventHandler } from 'react';
 
-import '../styles/Button.css';
+import './Button.css';
 
-type State = { button: string };
+interface IState {
+  button: string;
+}
 
-type Props = {
+interface IProps {
   disabled: boolean;
   onClick: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   children: React.ReactNode;
@@ -12,9 +14,9 @@ type Props = {
   className?: string;
   type: 'button' | 'link' | 'submit';
   href?: string;
-};
+}
 
-export class ButtonClass extends Component<Props, State> {
+export class ButtonClass extends Component<IProps, IState> {
   render() {
     const { disabled, onClick, children, active, className, type, href } =
       this.props;
@@ -33,7 +35,7 @@ export class ButtonClass extends Component<Props, State> {
           onClick={onClick}
           className={classes.join(' ')}
         >
-          {children || 'Default button'}
+          {children}
         </a>
       );
     }
@@ -41,18 +43,25 @@ export class ButtonClass extends Component<Props, State> {
       <button
         onClick={onClick}
         className={classes.join(' ')}
-        type={type || 'button'}
+        type={type}
         disabled={disabled ?? false}
       >
-        {children || 'Default button'}
+        {children}
       </button>
     );
   }
+
+  static defaultProps = {
+    active: false,
+    children: 'Default button',
+    type: 'button',
+    disabled: false,
+  };
 }
 
 // Function component
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<IProps> = ({
   disabled,
   onClick,
   children,
@@ -60,7 +69,7 @@ const Button: React.FC<Props> = ({
   className,
   type,
   href,
-}: Props) => {
+}: IProps) => {
   const classes = [className];
 
   if (active) classes.push('btn-active');
@@ -75,7 +84,7 @@ const Button: React.FC<Props> = ({
         onClick={onClick}
         className={classes.join(' ')}
       >
-        {children || 'Default button'}
+        {children}
       </a>
     );
   }
@@ -83,12 +92,19 @@ const Button: React.FC<Props> = ({
     <button
       onClick={onClick}
       className={classes.join(' ')}
-      type={type || 'button'}
-      disabled={disabled ?? false}
+      type={type}
+      disabled={disabled}
     >
-      {children || 'Default button'}
+      {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  active: false,
+  children: 'Default button',
+  type: 'button',
+  disabled: false,
 };
 
 export default Button;
