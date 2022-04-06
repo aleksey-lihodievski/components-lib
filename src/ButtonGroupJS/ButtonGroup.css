@@ -1,0 +1,7 @@
+.btnGroup {
+  display: flex;
+}
+
+.btnGroup__vertical {
+  flex-direction: column;
+}
